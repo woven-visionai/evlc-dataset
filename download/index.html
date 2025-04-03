@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <!-- Head -->
+  <head>    <!-- Metadata, OpenGraph and Schema.org -->
+    
+
+    <!-- Standard metadata -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>E-VLC Dataset</title>
+    <meta name="author" content="E-VLC Dataset" />
+    <meta name="description" content="A Real-World Dataset for Event-based Visible Light Communication And Localization" />
+    <meta name="keywords" content="E-VLC, Event cameras, Visible Light Communication, Active markers, Dataset" />
+
+    <!-- OpenGraph -->
+    <meta property="og:site_name" content="E-VLC Dataset" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="E-VLC Dataset | Home" />
+    <meta property="og:url" content="http://localhost:5500/evlc-dataset/" />
+    <meta property="og:description" content="A Real-World Dataset for Event-based Visible Light Communication And Localization." />
+    
+    <meta property="og:locale" content="en" />
+
+    <!-- Twitter card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Home" />
+    <meta name="twitter:description" content="A Real-World Dataset for Event-based Visible Light Communication And Localization." />
+    
+    
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+      {
+        "author":
+        {
+          "@type": "Person",
+          "name": "E-VLC Dataset"
+        },
+        "url": "http://localhost:5500/evlc-dataset/",
+        "@type": "WebSite",
+        "description": "A Real-World Dataset for Event-based Visible Light Communication And Localization",
+        "headline": "Home",
+        "sameAs": ["https://woven-visionai.github.io/evlc-dataset/"],
+        "name": "E-VLC Dataset",
+        "@context": "https://schema.org"
+      }
+    </script>
+
+    <!-- Bootstrap & MDB -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-DF7Zhf293AJxJNTmh5zhoYYIMs2oXitRfBjY+9L//AY=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/css/mdb.min.css" integrity="sha256-jpjYvU3G3N6nrrBwXJoVEYI/0zw8htfFnhT9ljN3JJw=" crossorigin="anonymous" />
+
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.1/css/academicons.min.css" integrity="sha256-i1+4qU2G2860dGGIOJscdC30s9beBXjFfzjWLjBRsBg=" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons">
+
+    <!-- Code Syntax Highlighting -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jwarby/jekyll-pygments-themes@master/PASTIE.css" media="none" id="highlight_theme_light" />
+
+    <!-- Styles -->
+    
+    <link rel="stylesheet" href="/evlc-dataset/assets/css/main.css">
+    <link rel="canonical" href="http://localhost:5500/evlc-dataset/">
+    
+    <!-- Dark Mode -->
+    
+
+  </head>
+
+  <!-- Body -->
+  <body class="fixed-top-nav ">
+
+    <!-- Header -->
+    <header>
+
+      <!-- Nav Bar -->
+      <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top">
+        <div class="container">
+          
+          <!-- Navbar Toggle -->
+          <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar top-bar"></span>
+            <span class="icon-bar middle-bar"></span>
+            <span class="icon-bar bottom-bar"></span>
+          </button>
+
+          <div class="collapse navbar-collapse text-right" id="navbarNav">
+            <ul class="navbar-nav ml-auto flex-nowrap">
+
+              <!-- Home -->
+              <li class="nav-item">
+                <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+              </li>
+              <!-- Other pages -->
+              <li class="nav-item ">
+                <a class="nav-link" href="/evlc-dataset/about/">About</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="/evlc-dataset/download/">Download</a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="https://github.com/woven-visionai/evlc-dataset/issues" target="_blank" rel="noopener noreferrer">Contact Us</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+<!-- Content -->
+<div class="container mt-5">
+    <!-- page.html -->
+    <div class="post">
+
+        <div class="container mt-5">
+        <header class="post-header">
+        <h1 class="post-title">Data Format</h1>
+        <p class="post-description"></p>
+        </header>
+
+        <!-- Navigation Menu -->
+        <nav>
+          <!-- <ul> -->
+            <div class="data-format-title">
+            <li><a href="#event-data">Event data</a></li>
+            <li><a href="#frame-data">Frame data</a></li>
+            <li><a href="#annotation">LED annotation</a></li>
+            <li><a href="#gt-cam-pose">GT camera pose</a></li>
+            <li><a href="#gt-led-pos">GT LED position</a></li>
+          </div>
+          <!-- </ul> -->
+        </nav>
+        <br>
+        <article>
+
+<div class="data-format-title-1" id="event-data">Event Data</div>
+<p>
+  We provide data in a convenient format .hdf5 as well as .raw. The hdf5 format contains the followings:
+</p>
+<pre tabindex="0">
+  <code>
+  $ h5ls -r 250220_121732/prophesee0/events.hdf5
+  /                        Group
+  /raw_events              Group
+  /raw_events/p            Dataset {2076982/Inf}
+  /raw_events/t            Dataset {2076982/Inf}
+  /raw_events/x            Dataset {2076982/Inf}
+  /raw_events/y            Dataset {2076982/Inf}
+  /trigger                 Group
+  /trigger/t               Dataset {562/Inf}
+  /trigger/type            Dataset {562/Inf}
+  </code>
+</pre>
+  <br>
+    <ul>
+      <li><code>'raw_events'</code>:
+      <ul>
+        <li><code>'x'</code>: x coordinate (height).</li>
+        <li><code>'y'</code>: y coordinate (width).</li>
+        <li><code>'t'</code>: Timestamp in microsec.</li>
+        <li><code>'p'</code>: Polatiry, 0 is negative and 1 is positive.</li>
+      </ul>
+      </li>
+      <li><code>'trigger'</code>:
+        <ul>
+          <li><code>'type'</code>: Sync trigger type, 1 indicates ON.</li>
+          <li><code>'t'</code>: Timestamp in microsec.</li>
+        </ul>
+        </li>  
+    </ul>
+
+<div class="data-format-title-1" id="frame-data">Frame Data</div>
+<p>
+  RGB data is stored in mp4 file. The timing of the frames is the first trigger of every three ON triggers. 
+</p>
+
+<div class="data-format-title-1" id="annotation">Annotation</div>
+<p>
+  Annotation bounding boxes are provided as <code>annotation.yaml</code> in each sequence with  <a href="https://docs.cvat.ai/v1.7.0/docs/manual/advanced/xml_format/" target="_blank" rel="noopener noreferrer">CVAT v1.1 format</a>.
+  The annotation coordinates are in the event camera image plane, and <code>(x, y)</code> corresponds to (width, height) from the top-left.
+  The annotations are at every ON trigger timing.
+</p>
+<pre tabindex="0">
+  <code>
+    &lt;track id="180" label="LED-21" source="semi-auto" task_id="2335" subset="default"&gt;
+    &lt;box frame="33441" keyframe="1" outside="0" occluded="0" xtl="615.50" ytl="197.87" xbr="624.62" ybr="208.80" z_order="0"&gt;
+    &lt;/box&gt;
+    &lt;box frame="33442" keyframe="1" outside="0" occluded="0" xtl="616.82" ytl="200.57" xbr="625.61" ybr="210.60" z_order="0"&gt;
+    &lt;/box&gt;
+    &lt;box frame="33443" keyframe="1" outside="0" occluded="0" xtl="617.84" ytl="203.20" xbr="626.31" ybr="210.97" z_order="0"&gt;
+    &lt;/box&gt;
+    &lt;box frame="33444" keyframe="1" outside="0" occluded="0" xtl="618.59" ytl="203.60" xbr="626.74" ybr="211.10" z_order="0"&gt;
+    &lt;/box&gt;
+    ...
+  </code>
+</pre>
+
+<div class="data-format-title-1" id="gt-cam-pose">GT Camera Pose</div>
+<p>
+  The OptiTrack marker is attached on top of the stereo camera, hence there is a few (5-10) cm offset between the true pose of the cameras and the GT pose from OptiTrack.
+  The camera pose is provided as 4-by-4 matrices <code>(R, T)</code> in <code>.npz</code> file format.
+</p>
+
+<div class="data-format-title-1" id="gt-led-pos">GT LED Position</div>
+<p>
+  LED positions are given in <code>references</code> folder. Each json file stores the LED IDs in the 3D coordinate (same as the camera pose). The unit is in meter.
+</p>
+<pre tabindex="0">
+  <code>
+    "LED": {
+      "21": [
+          -8.967055952338944,
+          0.8104301314442308,
+          1.493524872
+      ],
+      ...
+    }
+  </code>
+</pre>
+
+        <header class="post-header">
+            <h1 class="post-title">Download</h1>
+            <p class="post-description"></p>
+        </header>
+        <nav>
+          <!-- <ul> -->
+            <div class="data-format-title">
+            <li><a href="#summary">Summary</a></li>
+            <li><a href="#translation">Translation</a></li>
+            <li><a href="#rotation">Rotation</a></li>
+            <li><a href="#dynamic">Dynamic</a></li>
+            <li><a href="#static">Static</a></li>
+          </div>
+          <!-- </ul> -->
+        </nav>
+        <br>
+
+        <article>
+            <div class="data-format-title-1" id="summary">Summary</div>
+            <p>
+              The dataset link will be available soon.
+              You can find the summary and details of each sequence below.
+            </p>
+
+            <p><br></p>
+            <!-- <div class="caption" style="text-align: center; font-weight: bold; width: 98%; margin: 0 auto;">
+                Dataset summary.
+            </div>             -->
+            <div class="row">
+                <div class="col-sm mt-3 mt-md-0">
+                    <figure>
+
+                    <picture>
+                    <!-- Fallback to the original file -->
+                    <div style="text-align: center;">
+                        <p><img src="/evlc-dataset/assets/img/dataset_details.png" alt="details" style="max-width:98%;"></p>
+                    </div>
+                    </picture>
+                </div>
+            </div>
+            <p><br></p>
+
+            <div class="data-format-title-1" id="translation">Translation</div>
+            <p><br></p>
+
+            <div class="row">
+              <div class="col-sm mt-3 mt-md-0">
+                  <figure>
+                      <picture>
+                          <!-- Fallback to the original file -->
+                          <img class="img-fluid rounded z-depth-1" src="/evlc-dataset/assets/gif/250220_123911.gif" title="Translation-Z">
+                      </picture>
+                  </figure>
+              </div>
+            </div>
+            <div class="caption" style="text-align: justify; width: 98%; margin: 0 auto;">
+              250220_123911 (Medium Sensitivity)
+            </div>
+            <div class="row">
+                <div class="col-sm mt-3 mt-md-0">
+                    <figure>
+                        <picture>
+                            <!-- Fallback to the original file -->
+                            <img class="img-fluid rounded z-depth-1" src="/evlc-dataset/assets/gif/250220_124103.gif" title="Translation-Z">
+                        </picture>
+                    </figure>
+                </div>
+            </div>
+            <div class="caption" style="text-align: justify; width: 98%; margin: 0 auto;">
+              250220_124103 (Low Sensitivity)
+            </div>
+            <div class="content-box">
+                <h4><strong>Translation-Z</strong></h4>
+                <br>
+                <div class="col-sm mt-3 mt-md-0">
+                  <table id="data-table">
+                    <tr>
+                      <th></th><th><strong>1200lux</strong></th><th><strong>600lux</strong></th>
+                    </tr>
+                    <tr>
+                      <td><strong>High</strong></td>
+                      <td>
+                        <li><code>250220_123732</code></li>
+                      </td>
+                      <td>
+                        <li><code>250220_123356</code></li>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><strong>Medium</strong></td>
+                      <td>
+                        <li><code>250220_123911</code></li>
+                      </td>
+                      <td>
+                        <li><code>250220_123056</code></li>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><strong>Low</strong></td>
+                      <td>
+                        <li><code>250220_124103</code></li>
+                        <li><code>250220_090916</code></li>
+                      </td>
+                      <td>
+                        <li><code>250220_122758</code></li>
+                        <li><code>250220_091233</code></li>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+            </div>
+
+            <p><br></p>
+            <div class="row">
+                <div class="col-sm mt-3 mt-md-0">
+                    <figure>
+                        <picture>
+                            <!-- Fallback to the original file -->
+                            <img class="img-fluid rounded z-depth-1" src="/evlc-dataset/assets/gif/250220_115427.gif" title="Translation-XYZ">
+                        </picture>
+                    </figure>
+                </div>
+            </div>
+            <div class="caption" style="text-align: justify; width: 98%; margin: 0 auto;">
+              250220_115427 (Medium Sensitivity)
+            </div>
+            <div class="row">
+                <div class="col-sm mt-3 mt-md-0">
+                    <figure>
+                        <picture>
+                            <!-- Fallback to the original file -->
+                            <img class="img-fluid rounded z-depth-1" src="/evlc-dataset/assets/gif/250220_115642.gif" title="Translation-XYZ">
+                        </picture>
+                    </figure>
+                </div>
+            </div>
+            <div class="caption" style="text-align: justify; width: 98%; margin: 0 auto;">
+              250220_115642 (Low Sensitivity)
+            </div>
+            <div class="content-box">
+                <h4><strong>Translation-XYZ</strong></h4>
+                <br>
+                <div class="col-sm mt-3 mt-md-0">
+                  <table id="data-table">
+                    <tr>
+                      <th></th><th><strong>1200lux</strong></th><th><strong>600lux</strong></th>
+                    </tr>
+                    <tr>
+                      <td><strong>Medium</strong></td>
+                      <td>
+                        <li><code>250220_115427</code></li>
+                      </td>
+                      <td>
+                        <li><code>250220_115217</code></li>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><strong>Low</strong></td>
+                      <td>
+                        <li><code>250220_115642</code></li>
+                      </td>
+                      <td>
+                        <li><code>250220_115028</code></li>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+            </div>
+
+            <p><br></p>
+            <div class="data-format-title-1" id="rotation">Rotation</div>
+            <p><br></p>
+
+            <div class="row">
+                <div class="col-sm mt-3 mt-md-0">
+                    <figure>
+                        <picture>
+                            <!-- Fallback to the original file -->
+                            <img class="img-fluid rounded z-depth-1" src="/evlc-dataset/assets/gif/250220_162949.gif" title="Rotation">
+                        </picture>
+                    </figure>
+                </div>
+            </div>
+            <div class="caption" style="text-align: justify; width: 98%; margin: 0 auto;">
+              250220_162949 (High Sensitivity)
+            </div>
+            <div class="row">
+                <div class="col-sm mt-3 mt-md-0">
+                    <figure>
+                        <picture>
+                            <!-- Fallback to the original file -->
+                            <img class="img-fluid rounded z-depth-1" src="/evlc-dataset/assets/gif/250220_111743.gif" title="Rotation">
+                        </picture>
+                    </figure>
+                </div>
+            </div>
+            <div class="caption" style="text-align: justify; width: 98%; margin: 0 auto;">
+              250220_111743 (Low Sensitivity)
+            </div>
+            <div class="content-box">
+                <h4><strong>Rotation</strong></h4>
+                <br>
+                <div class="col-sm mt-3 mt-md-0">
+                  <table id="data-table">
+                    <tr>
+                      <th></th><th><strong>1200lux</strong></th><th><strong>600lux</strong></th>
+                    </tr>
+                    <tr>
+                      <td><strong>High</strong></td>
+                      <td>
+                        <li><code>250220_162949</code></li>
+                        <li><code>250220_163133</code></li>
+                      </td>
+                      <td>
+                        <li><code>250220_163411</code></li>
+                        <li><code>250220_163539</code></li>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><strong>Medium</strong></td>
+                      <td>
+                        <li><code>250220_112109</code></li>
+                        <li><code>250220_112247</code></li>
+                      </td>
+                      <td>
+                        <li><code>250220_111141</code></li>
+                        <li><code>250220_111300</code></li>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><strong>Low</strong></td>
+                      <td>
+                        <li><code>250220_111743</code></li>
+                        <li><code>250220_111855</code></li>
+                      </td>
+                      <td>
+                        <li><code>250220_111009</code></li>
+                        <li><code>250220_111525</code></li>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+            </div>
+
+            <p><br></p>
+            <div class="data-format-title-1" id="dynamic">Dynamic</div>
+            <p><br></p>
+
+            <div class="row">
+                <div class="col-sm mt-3 mt-md-0">
+                    <figure>
+                        <picture>
+                            <!-- Fallback to the original file -->
+                            <img class="img-fluid rounded z-depth-1" src="/evlc-dataset/assets/gif/250220_144802.gif" title="Dynamic">
+                        </picture>
+                    </figure>
+                </div>
+            </div>
+            <div class="caption" style="text-align: justify; width: 98%; margin: 0 auto;">
+              250220_144802 (Low Sensitivity)
+            </div>
+            <div class="content-box">
+                <h4><strong>Dynamic</strong></h4>
+                <br>
+                <div class="col-sm mt-3 mt-md-0">
+                  <table id="data-table">
+                    <tr>
+                      <th></th><th><strong>1200lux</strong></th><th><strong>600lux</strong></th><th><strong>10lux</strong></th>
+                    </tr>
+                    <tr>
+                      <td><strong>High</strong></td>
+                      <td>
+                        <li><code>250220_145238</code></li>
+                      </td>
+                      <td>
+                        <li><code>250220_145624</code></li>
+                      </td>
+                      <td>
+                        <li><code>250220_150946</code></li>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><strong>Medium</strong></td>
+                      <td>
+                        <li><code>250220_145032</code></li>
+                        <li><code>250220_102247</code></li>
+                      </td>
+                      <td>
+                        <li><code>250220_102630</code></li>
+                        <li><code>250220_145829</code></li>
+                      </td>
+                      <td>
+                        <li><code>250220_150742</code></li>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><strong>Low</strong></td>
+                      <td>
+                        <li><code>250220_144802</code></li>
+                        <li><code>250220_102053</code></li>
+                      </td>
+                      <td>
+                        <li><code>250220_150017</code></li>
+                        <li><code>250220_102835</code></li>
+                      </td>
+                      <td>
+                        <li><code>250220_150518</code></li>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+            </div>
+
+            <p><br></p>
+            <div class="data-format-title-1" id="static">Static</div>
+            <p><br></p>
+
+            <!-- <div class="row">
+                <div class="col-sm mt-3 mt-md-0">
+                    <figure>
+                        <picture>
+                            <img class="img-fluid rounded z-depth-1" src="/evlc-dataset/assets/gif/CPLA.gif" title="Static">
+                        </picture>
+                    </figure>
+                </div>
+            </div> -->
+            <div class="content-box">
+                <h4><strong>Static</strong></h4>
+                <br>
+                <div class="col-sm mt-3 mt-md-0">
+                  <table id="data-table">
+                    <tr>
+                      <th></th><th><strong>1200lux</strong></th><th><strong>600lux</strong></th>
+                    </tr>
+                    <tr>
+                      <td><strong>High</strong></td>
+                      <td>
+                        <li><code>250220_113843</code></li>
+                        <li><code>250220_113936</code></li>
+                        <li><code>250220_114422</code></li>
+                        <li><code>250220_114616</code></li>
+                        <li><code>250220_115045</code></li>
+                        <li><code>250220_115252</code></li>
+                        <li><code>250220_120218</code></li>
+                      </td>
+                      <td>
+                        <li><code>250220_120621</code></li>
+                        <li><code>250220_121021</code></li>
+                        <li><code>250220_121137</code></li>
+                        <li><code>250220_121456</code></li>
+                        <li><code>250220_121622</code></li>
+                        <li><code>250220_122047</code></li>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><strong>Medium</strong></td>
+                      <td>
+                        <li><code>250220_113720</code></li>
+                        <li><code>250220_114021</code></li>
+                        <li><code>250220_114302</code></li>
+                        <li><code>250220_114649</code></li>
+                        <li><code>250220_114955</code></li>
+                        <li><code>250220_115344</code></li>
+                        <li><code>250220_120124</code></li>
+                      </td>
+                      <td>
+                        <li><code>250220_120658</code></li>
+                        <li><code>250220_120951</code></li>
+                        <li><code>250220_121235</code></li>
+                        <li><code>250220_121430</code></li>
+                        <li><code>250220_121650</code></li>
+                        <li><code>250220_122008</code></li>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><strong>Low</strong></td>
+                      <td>
+                        <li><code>250220_113604</code></li>
+                        <li><code>250220_114058</code></li>
+                        <li><code>250220_114208</code></li>
+                        <li><code>250220_114735</code></li>
+                        <li><code>250220_114915</code></li>
+                        <li><code>250220_115700</code></li>
+                        <li><code>250220_115953</code></li>
+                        <li><code>250220_120024</code></li>
+                      </td>
+                      <td>
+                        <li><code>250220_120752</code></li>
+                        <li><code>250220_120913</code></li>
+                        <li><code>250220_121301</code></li>
+                        <li><code>250220_121403</code></li>
+                        <li><code>250220_121732</code></li>
+                        <li><code>250220_121935</code></li>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+            </div>
+
+
+                    
+        </article>
+    </div>
+
+</div>
+
+    <!-- Footer -->    
+    <footer class="fixed-bottom">
+        <div class="container mt-0" style="width:100%;text-align:center;">
+          © 2025 Woven by Toyota, Inc. <a href="https://woven.toyota/en/privacy-notice/" target="_blank" rel="noopener noreferrer">Privacy Notice</a>
+        </div>
+    </footer>
+
+    <!-- JavaScripts -->
+    <!-- jQuery -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <!-- Bootsrap & MDB scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.2/dist/umd/popper.min.js" integrity="sha256-l/1pMF/+J4TThfgARS6KwWrk/egwuVvhRzfLAMQ6Ds4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha256-SyTu6CwrfOhaznYZPoolVw2rxoY7lKYKQvqbtqN93HI=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/js/mdb.min.js" integrity="sha256-NdbiivsvWt7VYCt6hYNT3h/th9vSTL4EDWeGs5SN3DA=" crossorigin="anonymous"></script>
+
+    <!-- Masonry & imagesLoaded -->
+  <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+  <script defer src="/evlc-dataset/assets/js/masonry.js" type="text/javascript"></script>
+    
+  <!-- Medium Zoom JS -->
+  <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js" integrity="sha256-EdPgYcPk/IIrw7FYeuJQexva49pVRZNmt3LculEr7zM=" crossorigin="anonymous"></script>
+  <script src="/evlc-dataset/assets/js/zoom.js"></script><!-- Load Common JS -->
+  <script src="/evlc-dataset/assets/js/common.js"></script>
+
+    <!-- MathJax -->
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        tags: 'ams'
+      }
+    };
+  </script>
+  <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js"></script>
+  <script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+
+    
+  </body>
+</html>
+
